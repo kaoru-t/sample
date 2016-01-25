@@ -2,7 +2,6 @@
 require_once("sql_common.php");
 /*
  * 開発用ツールズサービス クライアント用WEBアプリケーション
- * Copyright (C) 2010 Unicon Corporation. All rights reserved.
  *
  */
 /*
