@@ -1,7 +1,6 @@
 <?php
 /*
  * 開発用ツールズサービス クライアント用WEBアプリケーション
- * Copyright (C) 2010 Unicon Corporation. All rights reserved.
  */
 /*
  * このファイルは全てのphpファイルから最初に実行されて、
