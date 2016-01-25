@@ -1,8 +1,8 @@
 <?php
 
-	include("inc/sql_devtools.php");
-	include("inc/sql_daityo.php");
-	include("inc/common.php");
+    include("inc/sql_devtools.php");
+    include("inc/sql_daityo.php");
+    include("inc/common.php");
 
     $errors = array();
     $id = '';
@@ -36,8 +36,8 @@
 function parseRequest($lineData) {
     $formData = array();
 
-	$formData['aid'] = normalizeData($lineData['aid']);
-	$formData['pwd'] = normalizeData($lineData['pwd']);
+    $formData['aid'] = normalizeData($lineData['aid']);
+    $formData['pwd'] = normalizeData($lineData['pwd']);
 
     return $formData;
 }
@@ -49,15 +49,15 @@ function validateFormData(&$formData) {
 
     $error = array();
 
-	/* 必須チェック */
-	if (!$formData['aid']) $error[] = "氏名を選択してください。";
-	if (!$formData['pwd']) {
+    /* 必須チェック */
+    if (!$formData['aid']) $error[] = "氏名を選択してください。";
+    if (!$formData['pwd']) {
         $error[] = "パスワードを入力してください。";
     } else {
-		if (!preg_match("%\w%", $formData['pwd'])) {
-			$error[] = "パスワードのフォーマットが不正です。";
+        if (!preg_match("%\w%", $formData['pwd'])) {
+            $error[] = "パスワードのフォーマットが不正です。";
         }
-	}
+    }
 
     return $error;
 }
