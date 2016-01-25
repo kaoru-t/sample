@@ -2,6 +2,7 @@
 require_once("sql_common.php");
 /*
  * 開発用ツールズサービス クライアント用WEBアプリケーション
+ * Copyright (C) 2010 Unicon Corporation. All rights reserved.
  *
  */
 /*
@@ -970,13 +971,13 @@ function getSendID($dbh, $productID) {
 
     switch ($productID) {
         case PRODUCT_UK:
-	        $sql = "select nextval('seq_bug_id_uk')";
+            $sql = "select nextval('seq_bug_id_uk')";
             break;
         case PRODUCT_UM_C:
-	        $sql = "select nextval('seq_bug_id_c')";
+            $sql = "select nextval('seq_bug_id_c')";
             break;
         case PRODUCT_UM_J:
-	        $sql = "select nextval('seq_bug_id_j')";
+            $sql = "select nextval('seq_bug_id_j')";
             break;
     }
     return get_sequence($dbh, $sql);
@@ -989,13 +990,13 @@ function getModifyID($dbh, $productID) {
 
     switch ($productID) {
         case PRODUCT_UK:
-	        $sql = "select nextval('seq_modify_id_uk')";
+            $sql = "select nextval('seq_modify_id_uk')";
             break;
         case PRODUCT_UM_C:
-	        $sql = "select nextval('seq_modify_id_um_c')";
+            $sql = "select nextval('seq_modify_id_um_c')";
             break;
         case PRODUCT_UM_J:
-	        $sql = "select nextval('seq_modify_id_um_j')";
+            $sql = "select nextval('seq_modify_id_um_j')";
             break;
     }
     return get_sequence($dbh, $sql);
@@ -1008,13 +1009,13 @@ function getBubID($dbh, $productID) {
 
     switch ($productID) {
         case PRODUCT_UK:
-	        $sql = "select nextval('seq_bug_id_uk')";
+            $sql = "select nextval('seq_bug_id_uk')";
             break;
         case PRODUCT_UM_C:
-	        $sql = "select nextval('seq_bug_id_um_c')";
+            $sql = "select nextval('seq_bug_id_um_c')";
             break;
         case PRODUCT_UM_J:
-	        $sql = "select nextval('seq_bug_id_um_j')";
+            $sql = "select nextval('seq_bug_id_um_j')";
             break;
     }
     return get_sequence($dbh, $sql);
@@ -1026,7 +1027,7 @@ function getBubID($dbh, $productID) {
 function do_add_bug_info($dbh, $user, $formData) {
 
     $productID = $formData['product_info'][FLD_PRODUCT_ID];
-	$squence = getBubID($dbh, $productID);
+    $squence = getBubID($dbh, $productID);
     $bug_id = $squence[FLD_SEQ_NEXTVAL];
 
     if (!preg_match("/^\d+$/", $bug_id)) {
@@ -1217,7 +1218,7 @@ function do_add_modify($dbh, $user, $formData) {
 
     $productID = $formData['product_info'][FLD_PRODUCT_ID];
     
-	$squence = getModifyID($dbh, $productID);
+    $squence = getModifyID($dbh, $productID);
     $modify_id = $squence[FLD_SEQ_NEXTVAL];
     
     $formData['modifyInfo'][FLD_MOD_ID] = $modify_id;
