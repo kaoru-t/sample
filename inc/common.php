@@ -1,6 +1,7 @@
 <?php
 /*
  * 開発用ツールズサービス クライアント用WEBアプリケーション
+ * Copyright (C) 2010 Unicon Corporation. All rights reserved.
  */
 /*
  * このファイルは全てのphpファイルから最初に実行されて、
@@ -206,15 +207,15 @@ function get_parameter($name, $value = NULL) {
 function normalizeData($data) {
 
     if ($data) {
-	    // alphabetを英字に、全角スペースを半角に、半角カタカナを全角に。
-	    $data = mb_convert_kana($data, "asKV", "euc-jp");
-	    // alphabetを英字に、全角スペースを半角に、全角を半角カタカナに。
-	    //$data = mb_convert_kana($data, "ask", "euc-jp");
-	    // 前後のスペースを取る。
-	    $data = rtrim(ltrim($data));
-	    // 連続したスペースを一つに
-	    $data = preg_replace("/ +/i", " ", $data);
-	}
+        // alphabetを英字に、全角スペースを半角に、半角カタカナを全角に。
+        $data = mb_convert_kana($data, "asKV", "euc-jp");
+        // alphabetを英字に、全角スペースを半角に、全角を半角カタカナに。
+        //$data = mb_convert_kana($data, "ask", "euc-jp");
+        // 前後のスペースを取る。
+        $data = rtrim(ltrim($data));
+        // 連続したスペースを一つに
+        $data = preg_replace("/ +/i", " ", $data);
+    }
     return $data;
 }
 
@@ -394,25 +395,25 @@ function pager_forward($condition, $wcnt) {
 function csvField($rs, $field, $col, $forceQuot = false) {
 
 
-	$typeName = pg_field_type($rs, $col);
+    $typeName = pg_field_type($rs, $col);
 
-	$needQuot = $forceQuot;
-	
-	switch($typeName) {
-	case 'varchar':
-		// fall throuph 
-	case 'bpchar':
-		// fall throuph
-	case 'text':
-		// fall throuph 
-	case 'timestamp':
-		// fall throuph
-	case 'date':
-		// fall throuph
-	case 'time':
-		$needQuot = true;
-		break;
-	}
+    $needQuot = $forceQuot;
+    
+    switch($typeName) {
+    case 'varchar':
+        // fall throuph 
+    case 'bpchar':
+        // fall throuph
+    case 'text':
+        // fall throuph 
+    case 'timestamp':
+        // fall throuph
+    case 'date':
+        // fall throuph
+    case 'time':
+        $needQuot = true;
+        break;
+    }
 
     $field = strval($field);
     $field = preg_replace("/\"/i", "\"\"", $field);
